@@ -8,6 +8,14 @@ Generate an HTML index.
 - [Crates.io][2]
 - [Releases][releases]
 
+## Why?
+Over the years the HTML spec has added lots of new capabilities in a backwards
+compatible fashion. This means that even if something from the 90's might still
+work in today's browsers, it might not always be the most efficient.
+
+This crate makes it easy to build performant HTML without needing to remember
+all boilerplate involved.
+
 ## Examples
 ### Basic
 ```rust
@@ -21,6 +29,21 @@ pub fn main() {
     .build();
   println!("{}", res);
 }
+```
+
+Which generates:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="style" href="/bundle.css" onload="this.rel='stylesheet'">
+    <script src="/bundle.js" defer></script>
+  </head>
+  <body>hello world</body>
+</html>
 ```
 
 ## Installation
