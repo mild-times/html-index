@@ -10,7 +10,7 @@ Generate an HTML index.
 
 ## Examples
 ### Basic
-```rs
+```rust
 extern crate html_index;
 
 pub fn main() {
