@@ -1,0 +1,14 @@
+[package]
+name = "html-index"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/chooxide/html-index"
+documentation = "https://docs.rs/html-index"
+description = "Generate an HTML index."
+authors = ["Yoshua Wuyts <yoshuawuyts@gmail.com>"]
+readme = "README.md"
+
+[dependencies]
+failure = "0.1.2"
+
+[dev-dependencies]
