@@ -1,3 +1,19 @@
+## 2018-10-12, Version 0.1.2
+### Commits
+- [[`7607faab1c`](https://github.com/chooxide/html-index/commit/7607faab1c7753e4fbdae1d807c00cb5bd39f15e)] (cargo-release) version 0.1.2 (Yoshua Wuyts)
+- [[`aced86da8c`](https://github.com/chooxide/html-index/commit/aced86da8c4db3ea52134180e02999ae9aa762f6)] load scripts before styles (Yoshua Wuyts)
+- [[`f048748d72`](https://github.com/chooxide/html-index/commit/f048748d7229c1f105dce982ca43bb8e8415aca3)] document ff bug (Yoshua Wuyts)
+- [[`7a8e1bbca6`](https://github.com/chooxide/html-index/commit/7a8e1bbca6f24826fb33ced69dc016189662babd)] Update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ CHANGELOG.md | 37 +++++++++++++++++++++++++++++++++++++
+ Cargo.toml   |  2 +-
+ src/lib.rs   |  8 +++++---
+ 3 files changed, 43 insertions(+), 4 deletions(-)
+```
+
+
 ## 2018-10-12, Version 0.1.1
 ### Commits
 - [[`39421b8828`](https://github.com/chooxide/html-index/commit/39421b8828266d68050cf7eb1ee2e905976fbee8)] (cargo-release) version 0.1.1 (Yoshua Wuyts)
