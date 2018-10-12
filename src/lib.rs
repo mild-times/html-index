@@ -103,6 +103,8 @@ impl<'b> Builder<'b> {
   ///
   /// Generally this should be combined with `.inline_style()` to optimize a
   /// render pipeline.
+  ///
+  /// `onerror` exists because of a bug in firefox. See https://github.com/filamentgroup/loadCSS/issues/246 for more details
   // TODO: also allow passing a sha512
   pub fn style(mut self, src: &str) -> Self {
     let val = format!(r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'" onerror="this.rel='stylesheet'">"#, src);
