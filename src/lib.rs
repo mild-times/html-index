@@ -98,6 +98,15 @@ impl<'b> Builder<'b> {
     self
   }
 
+  /// Add a `<script></script>` tag. This is ideal for loading custom scripts
+  /// that are essential for loading.
+  // TODO: also allow passing a sha512
+  pub fn inline_script(mut self, src: &str) -> Self {
+    let val = format!(r#"<script>{}</script>"#, src);
+    self.scripts.push(val);
+    self
+  }
+
   /// Add a non-blocking `<link as="style">` tag. This is ideal for including
   /// styles that aren't essential for an initial render pass.
   ///
