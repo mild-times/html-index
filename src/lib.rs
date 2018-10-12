@@ -166,11 +166,11 @@ impl<'b> Builder<'b> {
     html.push_str(HEAD_OPEN);
     html.push_str(CHARSET);
     html.push_str(VIEWPORT);
-    for style in self.styles {
-      html.push_str(&style);
-    }
     for script in self.scripts {
       html.push_str(&script);
+    }
+    for style in self.styles {
+      html.push_str(&style);
     }
     for font in self.fonts {
       html.push_str(&font);
