@@ -105,7 +105,7 @@ impl<'b> Builder<'b> {
   /// render pipeline.
   // TODO: also allow passing a sha512
   pub fn style(mut self, src: &str) -> Self {
-    let val = format!(r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'">"#, src);
+    let val = format!(r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'" onerror="this.rel='stylesheet'">"#, src);
     self.styles.push(val);
     self
   }
