@@ -187,6 +187,10 @@ impl<'b> Builder<'b> {
     if let Some(manifest) = self.manifest {
       html.push_str(&manifest);
     }
+
+    if let Some(color) = self.color {
+      html.push_str(&color);
+    }
     if let Some(favicon) = self.favicon {
       html.push_str(&favicon);
     }
