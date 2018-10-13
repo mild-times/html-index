@@ -182,6 +182,9 @@ impl<'b> Builder<'b> {
     html.push_str(HEAD_OPEN);
     html.push_str(CHARSET);
     html.push_str(VIEWPORT);
+    if let Some(title) = self.title {
+      html.push_str(&title);
+    }
     for script in self.scripts {
       html.push_str(&script);
     }
