@@ -1,3 +1,18 @@
+## 2018-10-13, Version 0.1.7
+### Commits
+- [[`348ab7e5fb`](https://github.com/chooxide/html-index/commit/348ab7e5fb5ee81613913acf27c543d91aec3c76)] (cargo-release) version 0.1.7 (Yoshua Wuyts)
+- [[`4623004838`](https://github.com/chooxide/html-index/commit/46230048388101e39fbaae0f569a402f59737709)] fix desc (Yoshua Wuyts)
+- [[`34f817c70e`](https://github.com/chooxide/html-index/commit/34f817c70e9a9f569eb42ea4911479ff26d7538f)] Update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ CHANGELOG.md | 15 +++++++++++++++
+ Cargo.toml   |  2 +-
+ src/lib.rs   |  3 +++
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+```
+
+
 ## 2018-10-13, Version 0.1.6
 ### Commits
 - [[`2e8b9e088b`](https://github.com/chooxide/html-index/commit/2e8b9e088bd14bed1d585e5c213c4b11d3c4b875)] (cargo-release) version 0.1.6 (Yoshua Wuyts)
