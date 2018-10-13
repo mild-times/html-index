@@ -8,7 +8,6 @@ const DOCTYPE: &str = "<!DOCTYPE html>";
 const CHARSET: &str = r#"<meta charset="utf-8">"#;
 const VIEWPORT: &str =
   r#"<meta name="viewport" content="width=device-width, initial-scale=1.0">"#;
-const HTML_OPEN: &str = "<html>";
 const HTML_CLOSE: &str = "</html>";
 const HEAD_OPEN: &str = "<head>";
 const HEAD_CLOSE: &str = "</head>";
@@ -18,6 +17,7 @@ const HEAD_CLOSE: &str = "</head>";
 pub struct Builder<'b> {
   color: Option<String>,
   desc: Option<String>,
+  lang: &'b str,
   favicon: Option<String>,
   fonts: Vec<String>,
   manifest: Option<String>,
@@ -33,6 +33,7 @@ impl<'b> Builder<'b> {
     Self {
       body: None,
       color: None,
+      lang: "en-US",
       desc: None,
       favicon: None,
       fonts: vec![],
@@ -46,6 +47,12 @@ impl<'b> Builder<'b> {
   /// Add a body to the document. The body must include `<body></body>` tags.
   pub fn raw_body(mut self, body: &'b str) -> Self {
     self.body = Some(body);
+    self
+  }
+
+  /// Set the document language.
+  pub fn lang(mut self, lang: &'b str) -> Self {
+    self.lang = lang;
     self
   }
 
@@ -171,7 +178,7 @@ impl<'b> Builder<'b> {
   /// Create an HTML document.
   pub fn build(self) -> String {
     let mut html: String = DOCTYPE.into();
-    html.push_str(HTML_OPEN);
+    html.push_str(&format!(r#"<html lang="{}">"#, self.lang));
     html.push_str(HEAD_OPEN);
     html.push_str(CHARSET);
     html.push_str(VIEWPORT);

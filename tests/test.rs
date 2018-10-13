@@ -12,6 +12,6 @@ fn should_work() -> Result<(), Error> {
     .build();
 
   let expected = include_str!("./fixtures/html-css.html");
-  assert_eq!(res, expected);
+  assert_eq!(res, expected.replace("\n", ""));
   Ok(())
 }
