@@ -185,6 +185,9 @@ impl<'b> Builder<'b> {
     if let Some(title) = self.title {
       html.push_str(&title);
     }
+    if let Some(desc) = self.desc {
+      html.push_str(&desc);
+    }
     for script in self.scripts {
       html.push_str(&script);
     }
