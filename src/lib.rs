@@ -4,6 +4,8 @@
 #![cfg_attr(test, deny(warnings))]
 #![forbid(unsafe_code, missing_debug_implementations)]
 
+extern crate css_rel_preload;
+
 const DOCTYPE: &str = "<!DOCTYPE html>";
 const CHARSET: &str = r#"<meta charset="utf-8">"#;
 const VIEWPORT: &str =
@@ -12,8 +14,10 @@ const HTML_CLOSE: &str = "</html>";
 const HEAD_OPEN: &str = "<head>";
 const HEAD_CLOSE: &str = "</head>";
 
+use std::default::Default;
+
 /// Create a new HTML builder.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct Builder<'b> {
   color: Option<String>,
   desc: Option<String>,
@@ -25,22 +29,15 @@ pub struct Builder<'b> {
   styles: Vec<String>,
   title: Option<String>,
   body: Option<&'b str>,
+  has_async_style: bool,
 }
 
 impl<'b> Builder<'b> {
   /// Create a new instance from an HTML body, including `<body></body>` tags.
   pub fn new() -> Self {
     Self {
-      body: None,
-      color: None,
       lang: "en-US",
-      desc: None,
-      favicon: None,
-      fonts: vec![],
-      manifest: None,
-      scripts: vec![],
-      styles: vec![],
-      title: None,
+      ..Default::default()
     }
   }
 
@@ -125,6 +122,12 @@ impl<'b> Builder<'b> {
   pub fn style(mut self, src: &str) -> Self {
     let val = format!(r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'" onerror="this.rel='stylesheet'">"#, src);
     self.styles.push(val);
+
+    if !self.has_async_style {
+      self = self.inline_script(css_rel_preload::CSS_REL_PRELOAD);
+      self.has_async_style = true;
+    }
+
     self
   }
 
@@ -188,6 +191,7 @@ impl<'b> Builder<'b> {
     if let Some(desc) = self.desc {
       html.push_str(&desc);
     }
+
     for script in self.scripts {
       html.push_str(&script);
     }
