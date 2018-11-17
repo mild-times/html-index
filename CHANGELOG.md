@@ -1,3 +1,18 @@
+## 2018-11-17, Version 0.2.0
+### Commits
+- [[`39c4f835a4`](https://github.com/chooxide/html-index/commit/39c4f835a4fc0f6656db232fe241d18b8bc2eca6)] (cargo-release) version 0.2.0 (Yoshua Wuyts)
+- [[`eb305217f8`](https://github.com/chooxide/html-index/commit/eb305217f88d54d0b6502b8ee2c959791e272277)] css auto-include preload shim (#2) (Yoshua Wuyts)
+- [[`8c11c4c604`](https://github.com/chooxide/html-index/commit/8c11c4c604a87a964a1f6a473545a900662bfa96)] Update changelog (Yoshua Wuyts)
+
+### Stats
+```diff
+ CHANGELOG.md | 15 +++++++++++++++
+ Cargo.toml   |  3 ++-
+ src/lib.rs   | 24 ++++++++++++++----------
+ 3 files changed, 31 insertions(+), 11 deletions(-)
+```
+
+
 ## 2018-10-13, Version 0.1.7
 ### Commits
 - [[`348ab7e5fb`](https://github.com/chooxide/html-index/commit/348ab7e5fb5ee81613913acf27c543d91aec3c76)] (cargo-release) version 0.1.7 (Yoshua Wuyts)
