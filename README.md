@@ -70,14 +70,14 @@ None.
 
 [1]: https://img.shields.io/crates/v/html-index.svg?style=flat-square
 [2]: https://crates.io/crates/html-index
-[3]: https://img.shields.io/travis/chooxide/html-index.svg?style=flat-square
-[4]: https://travis-ci.org/chooxide/html-index
+[3]: https://img.shields.io/travis/rust-net-web/html-index.svg?style=flat-square
+[4]: https://travis-ci.org/rust-net-web/html-index
 [5]: https://img.shields.io/crates/d/html-index.svg?style=flat-square
 [6]: https://crates.io/crates/html-index
 [7]: https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square
 [8]: https://docs.rs/html-index
 
-[releases]: https://github.com/chooxide/html-index/releases
-[contributing]: https://github.com/chooxide/html-index/.github/CONTRIBUTING.md
-[good-first-issue]: https://github.com/chooxide/html-index/labels/good%20first%20issue
-[help-wanted]: https://github.com/chooxide/html-index/labels/help%20wanted
+[releases]: https://github.com/rust-net-web/html-index/releases
+[contributing]: https://github.com/rust-net-web/html-index/.github/CONTRIBUTING.md
+[good-first-issue]: https://github.com/rust-net-web/html-index/labels/good%20first%20issue
+[help-wanted]: https://github.com/rust-net-web/html-index/labels/help%20wanted
