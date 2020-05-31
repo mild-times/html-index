@@ -1,6 +1,6 @@
 [package]
 name = "html-index"
-version = "0.3.0"
+version = "0.3.1"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/rust-net-web/html-index"
 documentation = "https://docs.rs/html-index"
@@ -10,5 +10,6 @@ readme = "README.md"
 
 [dependencies]
 css-rel-preload = "0.1.0"
+http-types = "2.1.0"
 
 [dev-dependencies]

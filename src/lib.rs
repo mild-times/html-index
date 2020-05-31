@@ -1,6 +1,3 @@
-#![cfg_attr(feature = "nightly", deny(missing_docs))]
-#![cfg_attr(feature = "nightly", feature(external_doc))]
-#![cfg_attr(feature = "nightly", doc(include = "../README.md"))]
 #![cfg_attr(test, deny(warnings))]
 #![forbid(unsafe_code, missing_debug_implementations)]
 
@@ -120,7 +117,10 @@ impl<'b> Builder<'b> {
   /// `onerror` exists because of a bug in firefox. See https://github.com/filamentgroup/loadCSS/issues/246 for more details
   // TODO: also allow passing a sha512
   pub fn style(mut self, src: &str) -> Self {
-    let val = format!(r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'" onerror="this.rel='stylesheet'">"#, src);
+    let val = format!(
+      r#"<link rel="preload" as="style" href="{}" onload="this.rel='stylesheet'" onerror="this.rel='stylesheet'">"#,
+      src
+    );
     self.styles.push(val);
 
     if !self.has_async_style {
@@ -217,5 +217,14 @@ impl<'b> Builder<'b> {
     }
     html.push_str(HTML_CLOSE);
     html
+  }
+}
+
+impl Into<http_types::Response> for Builder<'_> {
+  fn into(self) -> http_types::Response {
+    let mut res = http_types::Response::new(200);
+    res.set_content_type(http_types::mime::HTML);
+    res.set_body(self.build());
+    res
   }
 }
