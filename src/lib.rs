@@ -114,7 +114,7 @@ impl<'b> Builder<'b> {
     /// initial rendering.
     // TODO: also allow passing a sha512
     pub fn script(mut self, src: &str) -> Self {
-        let val = format!(r#"<script src="{}" defer></script>"#, src);
+        let val = format!(r#"<script type="module" src="{}"></script>"#, src);
         self.scripts.push(val);
         self
     }
@@ -132,7 +132,7 @@ impl<'b> Builder<'b> {
     /// loaded before any rendering can start.
     // TODO: also allow passing a sha512
     pub fn blocking_script(mut self, src: &str) -> Self {
-        let val = format!(r#"<script src="{}"></script>"#, src);
+        let val = format!(r#"<script type="module" src="{}"></script>"#, src);
         self.scripts.push(val);
         self
     }
@@ -141,7 +141,7 @@ impl<'b> Builder<'b> {
     /// that are essential for loading.
     // TODO: also allow passing a sha512
     pub fn inline_script(mut self, src: &str) -> Self {
-        let val = format!(r#"<script>{}</script>"#, src);
+        let val = format!(r#"<script type="module">{}</script>"#, src);
         self.scripts.push(val);
         self
     }
