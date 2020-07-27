@@ -14,3 +14,4 @@ css-rel-preload = "0.1.0"
 http-types = "2.1.0"
 
 [dev-dependencies]
+anyhow = "1.0.32"
