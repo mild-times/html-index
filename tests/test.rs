@@ -1,10 +1,5 @@
-extern crate failure;
-extern crate html_index;
-
-use failure::Error;
-
 #[test]
-fn should_work() -> Result<(), Error> {
+fn should_work() -> anyhow::Result<()> {
     let res = html_index::Builder::new()
         .raw_body("<body>hello world</body>")
         .script("/bundle.js")

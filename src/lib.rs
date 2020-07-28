@@ -8,18 +8,27 @@
 //! This crate makes it easy to build performant HTML without needing to remember
 //! all boilerplate involved.
 //!
+//! ## Features
+//!
+//! The `http-types` feature enables a `Builder::into()` conversion for [http_types::Response][].
+//! This feature is enabled by default.
+//!
+//! If you are not using other http-types ecosystem crates, you can disable the feature:
+//! ```toml
+//! html-index = { version = "*", default-features = false }
+//! ```
+//!
+//! [http_types::Response]: https://docs.rs/http-types/2.3.0/http_types/struct.Response.html
+//!
 //! ## Examples
 //!
 //! ```rust
-//!
-//! pub fn main() {
-//!   let res = html_index::Builder::new()
+//! let res = html_index::Builder::new()
 //!     .raw_body("<body>hello world</body>")
 //!     .script("/bundle.js")
 //!     .style("/bundle.css")
 //!     .build();
-//!   println!("{}", res);
-//! }
+//! println!("{}", res);
 //! ```
 //!
 //! Which generates:
@@ -257,6 +266,7 @@ impl<'b> Builder<'b> {
     }
 }
 
+#[cfg(feature = "http-types")]
 impl Into<http_types::Response> for Builder<'_> {
     fn into(self) -> http_types::Response {
         let mut res = http_types::Response::new(200);
