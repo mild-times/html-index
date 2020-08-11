@@ -128,6 +128,22 @@ impl<'b> Builder<'b> {
         self
     }
 
+    /// Add a `<script type="module">` tag that fetches a remote resource.
+    // TODO: also allow passing a sha512
+    pub fn module(mut self, src: &str) -> Self {
+        let val = format!(r#"<script src="{}" type="module"></script>"#, src);
+        self.scripts.push(val);
+        self
+    }
+
+    /// Add a `<script type="module">` tag that contains an inline resource.
+    // TODO: also allow passing a sha512
+    pub fn inline_module(mut self, src: &str) -> Self {
+        let val = format!(r#"<script type="module">{}</script>"#, src);
+        self.scripts.push(val);
+        self
+    }
+
     /// Add a `<link rel="prefetch">` tag. This is ideal for loading scripts in
     /// the background after the main application has loaded.
     // TODO: also allow passing a sha512
